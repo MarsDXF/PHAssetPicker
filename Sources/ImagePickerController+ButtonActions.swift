@@ -6,8 +6,6 @@ extension ImagePickerController {
         self.albumsViewController
             .albums = self.albums
 
-        self.rotateButtonArrow()
-
         self.present(self.albumsViewController,
                      animated: true)
     }

@@ -4,7 +4,6 @@ import Photos
 protocol AlbumsViewControllerDelegate: class {
     func albumsViewController(_ albumsViewController: AlbumsViewController,
                               didSelectAlbum album: PHAssetCollection)
-    func didDismissAlbumsViewController(_ albumsViewController: AlbumsViewController)
 }
 
 class AlbumsViewController: UIViewController {
@@ -28,15 +27,6 @@ class AlbumsViewController: UIViewController {
             .configuration = self.configuration
 
         self.setupUI()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if isBeingDismissed {
-            self.delegate?
-                .didDismissAlbumsViewController(self)
-        }
     }
 
     private func setupUI() {

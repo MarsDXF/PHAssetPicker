@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
-  s.name = "ImagePicker"
+  s.name = "SimpleImagePicker"
   s.version = "1.0.0"
 
-  s.summary = "Image Picker"
-  s.homepage = "https://github.com/eugenebokhan/ImagePicker"
+  s.summary = "Simple Image Picker"
+  s.homepage = "https://github.com/eugenebokhan/SimpleImagePicker"
 
   s.author = {
     "Eugene Bokhan" => "eugenebokhan@protonmail.com"
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "12.3"
 
   s.source = {
-    :git => "https://github.com/eugenebokhan/ImagePicker.git",
+    :git => "https://github.com/eugenebokhan/SimpleImagePicker.git",
     :tag => "#{s.version}"
   }
   s.source_files = "Sources/**/*.{swift}"

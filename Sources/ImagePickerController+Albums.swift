@@ -2,10 +2,7 @@ import Foundation
 import Photos
 
 extension ImagePickerController: AlbumsViewControllerDelegate {
-    func didDismissAlbumsViewController(_ albumsViewController: AlbumsViewController) {
-        self.rotateButtonArrow()
-    }
-    
+
     func albumsViewController(_ albumsViewController: AlbumsViewController,
                               didSelectAlbum album: PHAssetCollection) {
         self.select(album: album)
