@@ -3,11 +3,11 @@ import Photos
 
 // MARK: - ImagePickerController
 
-public class ImagePickerController: UINavigationController {
+public class PHAssetPickerController: UINavigationController {
 
     // MARK: - Properties
 
-    public weak var imagePickerDelegate: ImagePickerControllerDelegate?
+    public weak var assetPickerControllerDelegate: PHAssetPickerControllerDelegate?
     public var configuration = Configuration()
     public var doneButton = UIBarButtonItem(title: localizedDone,
                                             style: .done,
@@ -83,7 +83,7 @@ public class ImagePickerController: UINavigationController {
             .semanticContentAttribute = .forceRightToLeft
         self.albumButton
             .addTarget(self,
-                       action: #selector(ImagePickerController.albumsButtonPressed(_:)),
+                       action: #selector(PHAssetPickerController.albumsButtonPressed(_:)),
                        for: .touchUpInside)
         firstViewController?.navigationItem
                             .titleView = self.albumButton

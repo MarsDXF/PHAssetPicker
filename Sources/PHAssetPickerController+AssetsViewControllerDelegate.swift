@@ -1,12 +1,13 @@
 import Foundation
 import Photos
 
-extension ImagePickerController: AssetsViewControllerDelegate {
+extension PHAssetPickerController: AssetsViewControllerDelegate {
+
     func assetsViewController(_ assetsViewController: AssetsViewController,
                               didSelectAsset asset: PHAsset) {
         defer {
             self.updatedDoneButton()
-            self.imagePickerDelegate?
+            self.assetPickerControllerDelegate?
                 .imagePicker(self,
                              didSelectAsset: asset)
         }
@@ -17,7 +18,7 @@ extension ImagePickerController: AssetsViewControllerDelegate {
         else { return }
 
         assetsViewController.unselect(asset: first)
-        self.imagePickerDelegate?
+        self.assetPickerControllerDelegate?
             .imagePicker(self,
                          didDeselectAsset: first)
     }
@@ -25,8 +26,9 @@ extension ImagePickerController: AssetsViewControllerDelegate {
     func assetsViewController(_ assetsViewController: AssetsViewController,
                               didDeselectAsset asset: PHAsset) {
         self.updatedDoneButton()
-        self.imagePickerDelegate?
+        self.assetPickerControllerDelegate?
             .imagePicker(self,
                          didDeselectAsset: asset)
     }
+    
 }

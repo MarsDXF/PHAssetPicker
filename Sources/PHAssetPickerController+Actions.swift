@@ -1,6 +1,6 @@
 import UIKit
 
-extension ImagePickerController {
+extension PHAssetPickerController {
     @objc
     func albumsButtonPressed(_ sender: UIButton) {
         self.albumsViewController
@@ -12,7 +12,7 @@ extension ImagePickerController {
 
     @objc
     func doneButtonPressed(_ sender: UIBarButtonItem) {
-        self.imagePickerDelegate?
+        self.assetPickerControllerDelegate?
             .imagePicker(self,
                          didFinishWithAssets: self.assetStore
                                                   .assets)
@@ -21,7 +21,7 @@ extension ImagePickerController {
 
     @objc
     func cancelButtonPressed(_ sender: UIBarButtonItem) {
-        self.imagePickerDelegate?
+        self.assetPickerControllerDelegate?
             .imagePicker(self,
                          didCancelWithAssets: self.assetStore
                                                   .assets)

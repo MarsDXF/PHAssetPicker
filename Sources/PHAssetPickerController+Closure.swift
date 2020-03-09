@@ -6,29 +6,29 @@ extension UIViewController {
     /// Present a image picker
     ///
     /// - Parameters:
-    ///   - imagePicker: The image picker to present
+    ///   - assetPicker: The image picker to present
     ///   - animated: Should presentation be animated
     ///   - select: Selection callback
     ///   - deselect: Deselection callback
     ///   - cancel: Cancel callback
     ///   - finish: Finish callback
     ///   - completion: Presentation completion callback
-    public func presentImagePicker(_ imagePicker: ImagePickerController,
-                                   animated: Bool = true,
-                                   select: ((_ asset: PHAsset) -> Void)?,
-                                   deselect: ((_ asset: PHAsset) -> Void)?,
-                                   cancel: ((Set<PHAsset>) -> Void)?,
-                                   finish: ((Set<PHAsset>) -> Void)?,
-                                   completion: (() -> Void)? = nil) {
+    public func presentPHAssetPicker(_ assetPicker: PHAssetPickerController,
+                                     animated: Bool = true,
+                                     select: ((_ asset: PHAsset) -> Void)?,
+                                     deselect: ((_ asset: PHAsset) -> Void)?,
+                                     cancel: ((Set<PHAsset>) -> Void)?,
+                                     finish: ((Set<PHAsset>) -> Void)?,
+                                     completion: (() -> Void)? = nil) {
         self.authorize {
-            imagePicker.didSelect = select
-            imagePicker.didDeselect = deselect
-            imagePicker.didCancelWith = cancel
-            imagePicker.didFinishWith = finish
+            assetPicker.didSelect = select
+            assetPicker.didDeselect = deselect
+            assetPicker.didCancelWith = cancel
+            assetPicker.didFinishWith = finish
 
-            imagePicker.imagePickerDelegate = imagePicker
+            assetPicker.assetPickerControllerDelegate = assetPicker
 
-            self.present(imagePicker,
+            self.present(assetPicker,
                          animated: animated,
                          completion: completion)
         }
@@ -46,34 +46,34 @@ extension UIViewController {
     }
 }
 
-extension ImagePickerController {
+extension PHAssetPickerController {
     public static var currentAuthorization : PHAuthorizationStatus {
         PHPhotoLibrary.authorizationStatus()
     }
 }
 
-extension ImagePickerController: ImagePickerControllerDelegate {
-    public func imagePicker(_ imagePicker: ImagePickerController,
+extension PHAssetPickerController: PHAssetPickerControllerDelegate {
+    public func imagePicker(_ imagePicker: PHAssetPickerController,
                             didSelectAsset asset: PHAsset) {
         self.didSelect?(asset)
     }
 
-    public func imagePicker(_ imagePicker: ImagePickerController,
+    public func imagePicker(_ imagePicker: PHAssetPickerController,
                             didDeselectAsset asset: PHAsset) {
         self.didDeselect?(asset)
     }
 
-    public func imagePicker(_ imagePicker: ImagePickerController,
+    public func imagePicker(_ imagePicker: PHAssetPickerController,
                             didFinishWithAssets assets: Set<PHAsset>) {
         self.didFinishWith?(assets)
     }
 
-    public func imagePicker(_ imagePicker: ImagePickerController,
+    public func imagePicker(_ imagePicker: PHAssetPickerController,
                             didCancelWithAssets assets: Set<PHAsset>) {
         self.didCancelWith?(assets)
     }
 
-    public func imagePicker(_ imagePicker: ImagePickerController,
+    public func imagePicker(_ imagePicker: PHAssetPickerController,
                             didReachSelectionLimit count: Int) {
         
     }

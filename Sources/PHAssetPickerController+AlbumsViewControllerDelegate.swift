@@ -2,7 +2,7 @@
 import Foundation
 import Photos
 
-extension ImagePickerController: AlbumsViewControllerDelegate {
+extension PHAssetPickerController: AlbumsViewControllerDelegate {
 
     func albumsViewController(_ albumsViewController: AlbumsViewController,
                               didSelectAlbum album: PHAssetCollection) {
