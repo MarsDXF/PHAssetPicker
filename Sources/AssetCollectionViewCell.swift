@@ -70,8 +70,6 @@ class AssetCollectionViewCell: UICollectionViewCell {
         self.imageView
             .clipsToBounds = true
         self.selectionOverlayView
-            .backgroundColor = .lightGray
-        self.selectionOverlayView
             .translatesAutoresizingMaskIntoConstraints = false
         self.selectionView
             .translatesAutoresizingMaskIntoConstraints = false

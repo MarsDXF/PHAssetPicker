@@ -6,6 +6,18 @@ extension PHAssetPickerController {
         self.albumsViewController
             .albums = self.albums
 
+        self.albumsViewController
+            .modalPresentationStyle = .popover
+        self.albumsViewController
+            .preferredContentSize = .init(width:300,
+                                          height: 320)
+        self.albumsViewController
+            .popoverPresentationController?
+            .sourceView = sender
+        self.albumsViewController
+            .popoverPresentationController?
+            .delegate = self
+
         self.present(self.albumsViewController,
                      animated: true)
     }
@@ -27,4 +39,13 @@ extension PHAssetPickerController {
                                                   .assets)
         self.dismiss(animated: true)
     }
+}
+
+extension PHAssetPickerController: UIPopoverPresentationControllerDelegate {
+
+    public func adaptivePresentationStyle(for controller: UIPresentationController,
+                                          traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+
 }

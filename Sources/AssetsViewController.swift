@@ -66,7 +66,8 @@ class AssetsViewController: UIViewController {
     private func setupUI() {
         self.view = self.collectionView
         self.title = " "
-
+        self.view
+            .backgroundColor = .groupTableViewBackground
         self.collectionView
             .allowsMultipleSelection = true
         self.collectionView

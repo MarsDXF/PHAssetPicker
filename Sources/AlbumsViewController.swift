@@ -55,8 +55,8 @@ class AlbumsViewController: UIViewController {
             .dataSource = self.dataSource
         self.tableView
             .delegate = self
-        self.view.addSubview(self.tableView)
-
+        self.view
+            .addSubview(self.tableView)
     }
 }
 

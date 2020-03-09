@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "PHAssetPicker"
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.summary = "PHAsset Picker"
   s.homepage = "https://github.com/eugenebokhan/PHAssetPicker"

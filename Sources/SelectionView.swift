@@ -8,7 +8,7 @@ class SelectionView: UIView {
             guard let numberView = icon as? NumberView,
                   let selectionIndex = selectionIndex
             else { return }
-            // Add 1 since selections should be 1-indexed
+
             numberView.text = (selectionIndex + 1).description
             self.setNeedsDisplay()
         }
@@ -25,12 +25,12 @@ class SelectionView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .clear
+        self.backgroundColor = .clear
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        backgroundColor = .clear
+        self.backgroundColor = .clear
     }
     
     override func draw(_ rect: CGRect) {

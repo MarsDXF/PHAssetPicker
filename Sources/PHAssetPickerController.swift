@@ -68,7 +68,7 @@ public class PHAssetPickerController: UINavigationController {
         
         self.viewControllers = [self.assetsViewController]
 
-        let firstViewController = viewControllers.first
+        let firstViewController = self.viewControllers.first
         self.albumButton
             .setTitleColor(self.albumButton.tintColor,
                            for: .normal)
