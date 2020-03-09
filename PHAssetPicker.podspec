@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name = "PHAssetPicker"
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
-  s.summary = "Simple Image Picker"
+  s.summary = "PHAsset Picker"
   s.homepage = "https://github.com/eugenebokhan/PHAssetPicker"
 
   s.author = {
